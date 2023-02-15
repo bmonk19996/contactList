@@ -10,8 +10,7 @@ const Main = () => {
         <div>Contact List</div>
       </div>
       <div id="container">
-        <table>
-          
+        <table>       
             <ContactList contacts={contacts} />
         </table>
       </div>
