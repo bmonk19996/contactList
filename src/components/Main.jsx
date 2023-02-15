@@ -5,6 +5,28 @@ const Main = () => {
   const [contacts, setContacts] = useState([]);
   const [selectedContact, setSelectedContact] = useState(null);
 
+  const selectContact = async (contactId, favoriteData) => {
+    try {
+    const response = await fetch(`http://jsonplace-univclone.herokuapp.com/users/${contactId}`);
+    const contact = await response.json();
+    setSelectedContact({...contact, ...favoriteData});
+    }catch(error){
+      console.log(error)
+    }
+  }
+  // async function selectContact(contactId) {
+  //   try {
+  //     const response = await fetch(
+  //       `http://jsonplace-univclone.herokuapp.com/users/${contactId}`
+  //     );
+  //     const myContact = await response.json();
+  //     setSelectedContact(myContact);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+
+
   async function getContacts() {
     try {
       const response = await fetch(
@@ -20,17 +42,6 @@ const Main = () => {
     getContacts();
   }, []);
 
-  async function selectContact(contactId) {
-    try {
-      const response = await fetch(
-        `http://jsonplace-univclone.herokuapp.com/users/${contactId}`
-      );
-      const myContact = await response.json();
-      setSelectedContact(myContact);
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
   return (
     <div id="main">
@@ -41,7 +52,7 @@ const Main = () => {
         
 
           {selectedContact ? 
-          <SelectedContact selectedContact={selectedContact} /> :
+          <SelectedContact selectedContact={selectedContact} selectContact={selectContact}/> :
           <ContactList contacts={contacts} selectContact={selectContact} />}
         
       </div>

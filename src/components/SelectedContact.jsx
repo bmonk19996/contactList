@@ -1,7 +1,9 @@
 import React from "react";
-
+import Favorite from"./Favorite"
 export default function SelectedContact(props) {
     const selectedContact =props.selectedContact
+    const favorite = props.favorite
+    const setFavorite = props.setFavorite
 
   return (
     <div id="single-contact">
@@ -26,6 +28,7 @@ export default function SelectedContact(props) {
         <p>
           <b>Company: </b>{selectedContact.company.name}
         </p>
+        <Favorite favorite={favorite} contact={selectedContact} selectContact={props.selectContact}/>
       </div>
     </div>
    
