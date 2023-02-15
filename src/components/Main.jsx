@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import  dummyContacts from "../dummyData";
+import dummyContacts from "../dummyData";
 
 const Main = () => {
-const [contacts, setContacts] = useState(dummyContacts);
-console.log(contacts)
+  const [contacts, setContacts] = useState(dummyContacts);
   return (
     <div id="main">
       <div id="navbar">
