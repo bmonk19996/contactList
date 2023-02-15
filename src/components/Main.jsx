@@ -16,8 +16,8 @@ const Main = () => {
               <th>Phone</th>
               <th>Email</th>
             </tr>
-            {contacts.map((contact) => {
-              return <tr>
+            {contacts.map((contact,idx) => {
+              return <tr key={`contacts:${idx}`}>
                   <td>{contact.name}</td>
                   <td>{contact.phone}</td>
                   <td>{contact.email}</td>
