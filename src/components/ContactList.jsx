@@ -1,24 +1,19 @@
 import react from "react";
+import { ContactRow } from "./";
 
 export default function ContactList(props) {
   const contacts = props.contacts;
 
   return (
-    <div>
+    <tbody>
       <tr>
         <th>Name</th>
         <th>Phone</th>
         <th>Email</th>
       </tr>
       {contacts.map((contact, idx) => {
-        return (
-          <tr key={`contacts:${idx}`}>
-            <td>{contact.name}</td>
-            <td>{contact.phone}</td>
-            <td>{contact.email}</td>
-          </tr>
-        );
+        return <ContactRow key={`contacts:${idx}`} contact={contact} />;
       })}
-    </div>
+    </tbody>
   );
 }

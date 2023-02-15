@@ -11,9 +11,8 @@ const Main = () => {
       </div>
       <div id="container">
         <table>
-          <tbody>
+          
             <ContactList contacts={contacts} />
-          </tbody>
         </table>
       </div>
     </div>
