@@ -7,13 +7,13 @@ const Main = () => {
     try{
       const response = await fetch('http://jsonplace-univclone.herokuapp.com/users')
       const myContacts = await response.json()
-      return myContacts
+      setContacts(myContacts)
     }catch(err){
       console.log(err)
     }
   }
-useEffect(async ()=>{
-  setContacts(await getContacts())
+useEffect(()=>{
+  getContacts()
 },[])
 
 
