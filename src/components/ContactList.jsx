@@ -6,6 +6,7 @@ export default function ContactList(props) {
   const selectContact = props.selectContact
 
   return (
+    <table>
     <tbody>
       <tr>
         <th>Name</th>
@@ -16,5 +17,6 @@ export default function ContactList(props) {
         return <ContactRow key={`contacts:${idx}`} contact={contact} selectContact={selectContact}/>;
       })}
     </tbody>
+    </table>
   );
 }
