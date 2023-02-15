@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import dummyContacts from "../dummyData";
+import ContactList from "./ContactList";
 
 const Main = () => {
   const [contacts, setContacts] = useState(dummyContacts);
@@ -11,19 +12,7 @@ const Main = () => {
       <div id="container">
         <table>
           <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Email</th>
-            </tr>
-            {contacts.map((contact,idx) => {
-              return <tr key={`contacts:${idx}`}>
-                  <td>{contact.name}</td>
-                  <td>{contact.phone}</td>
-                  <td>{contact.email}</td>
-                </tr>
-              ;
-            })}
+            <ContactList contacts={contacts} />
           </tbody>
         </table>
       </div>
