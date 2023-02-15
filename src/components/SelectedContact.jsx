@@ -2,29 +2,29 @@ import React from "react";
 
 export default function SelectedContact(props) {
     const selectedContact =props.selectedContact
-    console.log(selectedContact)
+
   return (
     <div id="single-contact">
       <div id="contact-info">
         <p>
-          <b>Name: {selectedContact.name}</b>{}
+          <b>Name: </b>{selectedContact.name}
         </p>
         <p>
-          <b>Email: {selectedContact.email}</b>{}
+          <b>Email: </b>{selectedContact.email}
         </p>
         <p>
-          <b>Phone: {selectedContact.phone}</b>{}
+          <b>Phone: </b>{selectedContact.phone}
         </p>
         <div>
           <b>Address: </b>
           <p>
-            <b>Street: {selectedContact.address.street}</b>
+            <b>Street: </b>{selectedContact.address.street}
             <br />
-            <b>City/State: {selectedContact.address.city}</b>
+            <b>City/State: </b>{selectedContact.address.city} {selectedContact.address.zipcode}
           </p>
         </div>
         <p>
-          <b>Company: {selectedContact.company.name}</b>{}
+          <b>Company: </b>{selectedContact.company.name}
         </p>
       </div>
     </div>
