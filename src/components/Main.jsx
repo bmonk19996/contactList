@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import ContactList from "./ContactList";
-
+import {ContactList} from "./";
+import {SelectedContact} from "./"
 const Main = () => {
   const [contacts, setContacts] = useState([]);
+  const [selectedContact,setSelectedContact] = useState({})
+
+
   async function getContacts(){
     try{
       const response = await fetch('http://jsonplace-univclone.herokuapp.com/users')
@@ -17,6 +20,16 @@ useEffect(()=>{
 },[])
 
 
+async function selectContact(contactId){
+  try{
+    const response = await fetch(`http://jsonplace-univclone.herokuapp.com/users/${contactId}` )
+    const myContact = await response.json()
+    setSelectedContact(myContact)
+  }catch(err){
+    console.log(err)
+  }
+}
+//        <SelectedContact selectedContact = {selectedContact}/>
 
   return (
     <div id="main">
@@ -25,7 +38,8 @@ useEffect(()=>{
       </div>
       <div id="container">
         <table>       
-            <ContactList contacts={contacts} />
+
+            <ContactList contacts={contacts} selectContact={selectContact}/>
         </table>
       </div>
     </div>

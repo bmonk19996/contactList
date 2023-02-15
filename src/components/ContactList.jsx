@@ -3,6 +3,7 @@ import { ContactRow } from "./";
 
 export default function ContactList(props) {
   const contacts = props.contacts;
+  const selectContact = props.selectContact
 
   return (
     <tbody>
@@ -12,7 +13,7 @@ export default function ContactList(props) {
         <th>Email</th>
       </tr>
       {contacts.map((contact, idx) => {
-        return <ContactRow key={`contacts:${idx}`} contact={contact} />;
+        return <ContactRow key={`contacts:${idx}`} contact={contact} selectContact={selectContact}/>;
       })}
     </tbody>
   );
